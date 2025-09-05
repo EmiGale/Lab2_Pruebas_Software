@@ -68,7 +68,7 @@ if __name__ == "__main__":
     address = "123 Main Street, City"
         
     threads = []
-    for i in range(100):
+    for i in range(106):
         t = threading.Thread(target=make_purchase, args=(purchases, cart, coupon, address, i))
         threads.append(t)
         t.start()
