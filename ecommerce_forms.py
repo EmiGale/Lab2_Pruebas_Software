@@ -56,8 +56,8 @@ if __name__ == "__main__":
     pucharses = OnlinePurchase()
 
     cart = {
-        "Laptop": 1,
-        "Mouse": 2
+        "Laptop": 128,
+        "Mouse": 235
     }
     coupon = "DISCOUNT10"
     address = "123 Main Street, City"
