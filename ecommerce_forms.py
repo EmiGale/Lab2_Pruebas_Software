@@ -1,3 +1,8 @@
+import threading
+
+def make_purchase(purchase_obj, cart, coupon, address, idx):
+    result = purchase_obj.process_purchase(cart, coupon, address)
+    print(f"Compra #{idx+1}:\n{result}\n")
 
 class OnlinePurchase:
     def __init__(self):
@@ -53,7 +58,7 @@ class OnlinePurchase:
 
 
 if __name__ == "__main__":
-    pucharses = OnlinePurchase()
+    purchases = OnlinePurchase()
 
     cart = {
         "Laptop": 128,
@@ -62,5 +67,12 @@ if __name__ == "__main__":
     coupon = "DISCOUNT10"
     address = "123 Main Street, City"
         
-    result = pucharses.process_purchase(cart, coupon, address)
-    print(result)
+    threads = []
+    for i in range(100):
+        t = threading.Thread(target=make_purchase, args=(purchases, cart, coupon, address, i))
+        threads.append(t)
+        t.start()
+
+    for t in threads:
+        t.join()
+    
