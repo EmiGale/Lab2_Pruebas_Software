@@ -53,4 +53,14 @@ class OnlinePurchase:
 
 
 if __name__ == "__main__":
-    
+    pucharses = OnlinePurchase()
+
+    cart = {
+        "Laptop": 15,
+        "Mouse": 463
+    }
+    coupon = "DISCOUNT10"
+    address = ""
+        
+    result = pucharses.process_purchase(cart, coupon, address)
+    print(result)
